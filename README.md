@@ -2,113 +2,87 @@
 
 A modern React + Firebase dashboard template with full authentication, Firestore integration, and role-based access control (RBAC).
 
----
 
 ## 📦 Project Setup
 
-### 1. Install Dependencies
+## Installation
 
-```bash
-npm install
-# or
-yarn install
-If you face peer dependency issues:
 
-bash
-Copy
-Edit
-npm install --legacy-peer-deps
-2. Start the Development Server
-bash
-Copy
-Edit
-npm run dev
-# or
-yarn dev
-Runs on http://localhost:5173
+- Node.js 18.x or later (recommended to use Node.js 20.x or later)
 
-🔐 Key Features (Firebase RBAC)
-🔑 Firebase Auth + Firestore Role-Based Access Control (RBAC)
+1. Install dependencies:
 
-🧠 AuthContext with real-time user role and auth state
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-👮‍♂️ ProtectedRoute component to restrict pages based on role
+   > Use the `--legacy-peer-deps` flag, if you face issues while installing.
 
-⚙️ Auto-create users/{uid} document in Firestore on sign-up
+2. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-👤 Role badges: Admin, Mechanic, Service User
+## Components
 
-🗃️ Full User Table with View/Edit/Delete actions
+This template includes:
 
-🎨 Light & Dark Mode toggle with persistence
+- Sophisticated and accessible sidebar
+- Data visualization components
+- Prebuilt profile management and 404 page
+- Tables and Charts(Line and Bar)
+- Authentication forms and input elements
+- Alerts, Dropdowns, Modals, Buttons and more
+- Can't forget Dark Mode 🕶️
 
-📊 Data visualization with ApexCharts
+All components are built with React and styled using Tailwind CSS for easy customization.
 
-📅 Calendar integration using Flatpickr
+laced deprecated class and optimized styles.
+#### Next Steps
 
-📦 Modular UI components: buttons, badges, modals, alerts
+- Run npm install or yarn install to update dependencies.
 
-🧩 Project Structure
-bash
-Copy
-Edit
-src/
-├── components/
-│   ├── auth/              # AuthContext, ProtectedRoute
-│   ├── common/            # PageMeta, Breadcrumb, Layout Helpers
-│   ├── tables/            # BasicTableOne, MechanicTable etc.
-│   ├── ui/                # Badge, Button, Table, etc.
-├── config/
-│   └── firebase.ts        # Firebase config and setup
-├── context/
-│   ├── AuthContext.tsx    # Handles login state & roles
-│   └── ThemeContext.tsx   # Handles light/dark mode
-├── layout/
-│   └── AppLayout.tsx      # Sidebar, header, outlet layout
-├── pages/
-│   ├── AuthPages/         # SignIn, SignUp
-│   ├── Dashboard/         # Home, Analytics
-│   ├── User/              # TotalUser, UserForm, etc.
-│   └── OtherPage/         # NotFound, Unauthorized
-└── App.tsx                # Route configuration with RBAC
-⚙️ Enhancements
-✅ Removed repetitive layout wrappers via nested routing
 
-✅ ClickOutside utility for dropdowns (header/user)
+A major update with comprehensive redesign and modern React patterns implementation.
 
-✅ Role-based conditional rendering of pages and UI
+#### Major Improvements
 
-✅ Table with status badges and user actions
+- Complete UI redesign with modern React patterns
+- New features: collapsible sidebar, chat, and calendar
+- Improved performance and accessibility
+- Updated data visualization using ApexCharts
 
-✅ Optimized useEffect and error handling
+#### Key Features
 
-✅ Dark mode persisted via localStorage
+- Redesigned dashboards (Ecommerce, Analytics, Marketing, CRM)
+- Enhanced navigation with React Router integration
+- Advanced tables with sorting and filtering
+- Calendar with drag-and-drop support
+- New UI components and improved existing ones
 
-✅ UI/UX Improvements
-Integrated flatpickr in Date Pickers (Forms)
+#### Breaking Changes
 
-Live color change on Select Element
+- Updated sidebar component API
+- Migrated charts to ApexCharts
+- Revised authentication system
 
-Enhanced MultiSelect Dropdown
 
-Editable fields in Pricing Table
+#### Enhancements
 
-Folder structure optimized for scalability
+1. Remove Repetition of DefaultLayout in every Pages
+2. Add ClickOutside Component for reduce repeated functionality in Header Message, Notification and User Dropdowns.
 
-💡 Upcoming Features
-🔐 Admin-only User CRUD with Firestore
+### Version 1.3.6 - [Jan 31, 2024]
 
-📤 Export tables to PDF/CSV
+#### Enhancements
 
-🧪 Unit tests (Jest + React Testing Library)
+1. Integrate flatpickr in [Date Picker/Form Elements]
+2. Change color after select an option [Select Element/Form Elements].
+3. Make it functional [Multiselect Dropdown/Form Elements].
+4. Make best value editable [Pricing Table One/Pricing Table].
+5. Rearrange Folder structure.
 
-📲 Push notifications via Firebase
-
-🌍 Deploy-ready setup (Vercel/Netlify)
-
-🔗 Live Demo
-Coming soon...
-
-🧑‍💻 Author
-Developed by [Muhammad Shamim Shoaib]
-📧 your.shamim.akhonzada@gmail.com
