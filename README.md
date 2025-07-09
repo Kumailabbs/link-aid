@@ -1,192 +1,114 @@
-# TailAdmin React - Free React Tailwind Admin Dashboard Template
+# 🚀 LinkAid Admin Dashboard
 
-TailAdmin is a free and open-source admin dashboard template built on **React and Tailwind CSS**, providing developers
-with everything they need to create a comprehensive, data-driven back-end,
-dashboard, or admin panel solution for upcoming web projects.
+A modern React + Firebase dashboard template with full authentication, Firestore integration, and role-based access control (RBAC).
 
-With TailAdmin, you get access to all the necessary dashboard UI components, elements, and pages required to build a
-feature-rich and complete dashboard or admin panel. Whether you're building dashboard or admin panel for a complex web
-application or a simple website, TailAdmin is the perfect solution to help you get up and running quickly.
+---
 
-![TailAdmin React.js Dashboard Preview](./banner.png)
+## 📦 Project Setup
 
-## Overview
-
-TailAdmin provides essential UI components and layouts for building feature-rich, data-driven admin dashboards and
-control panels. It's built on:
-
-- React 19
-- TypeScript
-- Tailwind CSS
-
-### Quick Links
-
-- [✨ Visit Website](https://tailadmin.com)
-- [📄 Documentation](https://tailadmin.com/docs)
-- [⬇️ Download](https://tailadmin.com/download)
-- [🖌️ Figma Design File (Community Edition)](https://www.figma.com/community/file/1214477970819985778)
-- [⚡ Get PRO Version](https://tailadmin.com/pricing)
-
-### Demos
-
-- [Free Version](https://free-react-demo.tailadmin.com/)
-- [Pro Version](https://react-demo.tailadmin.com)
-
-### Other Versions
-
-- [HTML Version](https://github.com/TailAdmin/tailadmin-free-tailwind-dashboard-template)
-- [Next.js Version](https://github.com/TailAdmin/free-nextjs-admin-dashboard)
-- [Vue.js Version](https://github.com/TailAdmin/vue-tailwind-admin-dashboard)
-
-## Installation
-
-### Prerequisites
-
-To get started with TailAdmin, ensure you have the following prerequisites installed and set up:
-
-- Node.js 18.x or later (recommended to use Node.js 20.x or later)
-
-### Cloning the Repository
-
-Clone the repository using the following command:
+### 1. Install Dependencies
 
 ```bash
-git clone https://github.com/TailAdmin/free-react-tailwind-admin-dashboard.git
-```
+npm install
+# or
+yarn install
+If you face peer dependency issues:
 
-> Windows Users: place the repository near the root of your drive if you face issues while cloning.
+bash
+Copy
+Edit
+npm install --legacy-peer-deps
+2. Start the Development Server
+bash
+Copy
+Edit
+npm run dev
+# or
+yarn dev
+Runs on http://localhost:5173
 
-1. Install dependencies:
+🔐 Key Features (Firebase RBAC)
+🔑 Firebase Auth + Firestore Role-Based Access Control (RBAC)
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+🧠 AuthContext with real-time user role and auth state
 
-   > Use the `--legacy-peer-deps` flag, if you face issues while installing.
+👮‍♂️ ProtectedRoute component to restrict pages based on role
 
-2. Start the development server:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+⚙️ Auto-create users/{uid} document in Firestore on sign-up
 
-## Components
+👤 Role badges: Admin, Mechanic, Service User
 
-TailAdmin is a pre-designed starting point for building a web-based dashboard using React.js and Tailwind CSS. The
-template includes:
+🗃️ Full User Table with View/Edit/Delete actions
 
-- Sophisticated and accessible sidebar
-- Data visualization components
-- Prebuilt profile management and 404 page
-- Tables and Charts(Line and Bar)
-- Authentication forms and input elements
-- Alerts, Dropdowns, Modals, Buttons and more
-- Can't forget Dark Mode 🕶️
+🎨 Light & Dark Mode toggle with persistence
 
-All components are built with React and styled using Tailwind CSS for easy customization.
+📊 Data visualization with ApexCharts
 
-## Feature Comparison
+📅 Calendar integration using Flatpickr
 
-### Free Version
+📦 Modular UI components: buttons, badges, modals, alerts
 
-- 1 Unique Dashboard
-- 30+ dashboard components
-- 50+ UI elements
-- Basic Figma design files
-- Community support
+🧩 Project Structure
+bash
+Copy
+Edit
+src/
+├── components/
+│   ├── auth/              # AuthContext, ProtectedRoute
+│   ├── common/            # PageMeta, Breadcrumb, Layout Helpers
+│   ├── tables/            # BasicTableOne, MechanicTable etc.
+│   ├── ui/                # Badge, Button, Table, etc.
+├── config/
+│   └── firebase.ts        # Firebase config and setup
+├── context/
+│   ├── AuthContext.tsx    # Handles login state & roles
+│   └── ThemeContext.tsx   # Handles light/dark mode
+├── layout/
+│   └── AppLayout.tsx      # Sidebar, header, outlet layout
+├── pages/
+│   ├── AuthPages/         # SignIn, SignUp
+│   ├── Dashboard/         # Home, Analytics
+│   ├── User/              # TotalUser, UserForm, etc.
+│   └── OtherPage/         # NotFound, Unauthorized
+└── App.tsx                # Route configuration with RBAC
+⚙️ Enhancements
+✅ Removed repetitive layout wrappers via nested routing
 
-### Pro Version
+✅ ClickOutside utility for dropdowns (header/user)
 
-- 5 Unique Dashboards: Analytics, Ecommerce, Marketing, CRM, Stocks (more coming soon)
-- 400+ dashboard components and UI elements
-- Complete Figma design file
-- Email support
+✅ Role-based conditional rendering of pages and UI
 
-To learn more about pro version features and pricing, visit our [pricing page](https://tailadmin.com/pricing).
+✅ Table with status badges and user actions
 
-## Changelog
+✅ Optimized useEffect and error handling
 
-### Version 2.0.2 - [March 25, 2025]
+✅ Dark mode persisted via localStorage
 
-- Upgraded to React 19
-- Included overrides for packages to prevent peer dependency errors.
-- Migrated from react-flatpickr to flatpickr package for React 19 support
+✅ UI/UX Improvements
+Integrated flatpickr in Date Pickers (Forms)
 
-### Version 2.0.1 - [February 27, 2025]
+Live color change on Select Element
 
-#### Update Overview
+Enhanced MultiSelect Dropdown
 
-- Upgraded to Tailwind CSS v4 for better performance and efficiency.
-- Updated class usage to match the latest syntax and features.
-- Replaced deprecated class and optimized styles.
+Editable fields in Pricing Table
 
-#### Next Steps
+Folder structure optimized for scalability
 
-- Run npm install or yarn install to update dependencies.
-- Check for any style changes or compatibility issues.
-- Refer to the Tailwind CSS v4 [Migration Guide](https://tailwindcss.com/docs/upgrade-guide) on this release. if needed.
-- This update keeps the project up to date with the latest Tailwind improvements. 🚀
+💡 Upcoming Features
+🔐 Admin-only User CRUD with Firestore
 
-### Version 2.0.0 - [February 2025]
+📤 Export tables to PDF/CSV
 
-A major update with comprehensive redesign and modern React patterns implementation.
+🧪 Unit tests (Jest + React Testing Library)
 
-#### Major Improvements
+📲 Push notifications via Firebase
 
-- Complete UI redesign with modern React patterns
-- New features: collapsible sidebar, chat, and calendar
-- Improved performance and accessibility
-- Updated data visualization using ApexCharts
+🌍 Deploy-ready setup (Vercel/Netlify)
 
-#### Key Features
+🔗 Live Demo
+Coming soon...
 
-- Redesigned dashboards (Ecommerce, Analytics, Marketing, CRM)
-- Enhanced navigation with React Router integration
-- Advanced tables with sorting and filtering
-- Calendar with drag-and-drop support
-- New UI components and improved existing ones
-
-#### Breaking Changes
-
-- Updated sidebar component API
-- Migrated charts to ApexCharts
-- Revised authentication system
-
-[Read more](https://tailadmin.com/docs/update-logs/react) on this release.
-
-### Version 1.3.7 - [June 20, 2024]
-
-#### Enhancements
-
-1. Remove Repetition of DefaultLayout in every Pages
-2. Add ClickOutside Component for reduce repeated functionality in Header Message, Notification and User Dropdowns.
-
-### Version 1.3.6 - [Jan 31, 2024]
-
-#### Enhancements
-
-1. Integrate flatpickr in [Date Picker/Form Elements]
-2. Change color after select an option [Select Element/Form Elements].
-3. Make it functional [Multiselect Dropdown/Form Elements].
-4. Make best value editable [Pricing Table One/Pricing Table].
-5. Rearrange Folder structure.
-
-### Version 1.2.0 - [Apr 28, 2023]
-
-- Add Typescript in TailAdmin React.
-
-### Version 1.0.0 - Initial Release - [Mar 13, 2023]
-
-- Initial release of TailAdmin React.
-
-## License
-
-TailAdmin React.js Free Version is released under the MIT License.
-
-## Support
-
-If you find this project helpful, please consider giving it a star on GitHub. Your support helps us continue developing
-and maintaining this template.
+🧑‍💻 Author
+Developed by [Muhammad Shamim Shoaib]
+📧 your.shamim.akhonzada@gmail.com
