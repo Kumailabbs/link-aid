@@ -11,10 +11,14 @@ import { db } from "../../../config/firebase";
 import { useAuth } from "../../../context/AuthContext";
 import { useEffect, useState } from "react";
 import { FiEdit, FiEye, FiTrash2 } from "react-icons/fi";
+import ComponentCard from "../../common/ComponentCard";
+import { useNavigate } from "react-router-dom";
 
 export default function BasicTableOne() {
   const { loading } = useAuth();
   const [tableData, setTableData] = useState<any[]>([]);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -45,20 +49,28 @@ export default function BasicTableOne() {
 
   const handleEdit = (id: string) => {
     console.log("✏️ Edit user:", id);
-    // Navigate to edit page or open modal
+    navigate(`/edit-user/${id}`);
   };
 
   const handleDelete = (id: string) => {
     console.log("🗑️ Delete user:", id);
     // Confirm and delete user from Firestore
   };
+  const handleAdd = ()=>{
+    navigate("/add-user")
+  }
 
   if (loading) {
     return <p className="text-center p-5">Loading users...</p>;
   }
 
   return (
-    <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
+    <ComponentCard title="Service Users" button = {
+      <button onClick={handleAdd}>
+        Add
+      </button>
+    }>
+          <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
       <div className="max-w-full overflow-x-auto">
         <Table>
           <TableHeader className="border-b border-gray-100 dark:border-white/[0.05]">
@@ -167,5 +179,6 @@ export default function BasicTableOne() {
         </Table>
       </div>
     </div>
+    </ComponentCard>
   );
 }

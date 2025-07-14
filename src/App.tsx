@@ -21,6 +21,8 @@ import Home from "./pages/Dashboard/Home";
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Unauthorized from "./pages/OtherPage/Unauthorized";
+import BasicForm from "./pages/Tables/BasicForm";
+import AddUserForm from "./components/tables/BasicTables/BasicFormOne";
 
 export default function App() {
   return (
@@ -64,6 +66,23 @@ export default function App() {
               element={
                 <ProtectedRoute allowedRoles={["Admin"]}>
                   <BasicTables />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/add-user"
+              element={
+                <ProtectedRoute allowedRoles={["Admin"]}>
+                  <BasicForm />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/edit-user/:id"
+              element={
+                <ProtectedRoute allowedRoles={["Admin"]}>
+                  <AddUserForm />
                 </ProtectedRoute>
               }
             />
